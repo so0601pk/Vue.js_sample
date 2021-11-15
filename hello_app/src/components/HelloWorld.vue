@@ -2,6 +2,11 @@
   <div class="hello">
     <h1>{{ title }}</h1>
     <p>{{ message }}</p>
+    <hr>
+    <div>
+      <input type="text" v-model="input">
+      <button v-on:click="doAction">Click</button>
+    </div>
   </div>
 </template>
 
@@ -10,7 +15,17 @@ export default {
   name: 'HelloWorld',
   props: {
     title: String,
-    message: String,
+  },
+  data:function(){//data=変数だが、関数の形式で記述しなければならない
+    return{
+      message: 'お名前は？',
+      input:'no name'
+    };
+  },
+  methods:{
+    doAction: function(){
+      this.message = 'こんにちは、' + this.input + 'さん！';
+    }
   }
 }
 </script>
@@ -27,12 +42,12 @@ h1 {
   font-weight: bold;
   text-align: right;
   letter-spacing: -8px;
-  color: #f0f0f0;
+  color: black;
   margin: 0px;
 }
 p{
   margin: 0px;
-  color: #f0f0f0;
+  color:black;
   font-size: 16pt;
 }
 </style>
