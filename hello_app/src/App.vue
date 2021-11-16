@@ -15,7 +15,7 @@ export default {
   data: function(){
     return {
       message: 'validation',
-      num:123
+      num:12
     };
   },
   methods:{
