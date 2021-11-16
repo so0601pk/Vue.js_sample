@@ -3,10 +3,7 @@
     <h1>{{ title }}</h1>
     <p>{{ message }}</p>
     <hr>
-    <div>
-      <input type="text" v-model="input">
-      <button v-on:click="doAction">Click</button>
-    </div>
+    <p>Number: {{ num }}</p>
   </div>
 </template>
 
@@ -15,11 +12,11 @@ export default {
   name: 'HelloWorld',
   props: {
     title: String,
+    num: Number,
   },
   data:function(){//data=変数だが、関数の形式で記述しなければならない
     return{
-      message: 'お名前は？',
-      input:'no name'
+      message: 'バリデーションチェック',
     };
   },
   methods:{
