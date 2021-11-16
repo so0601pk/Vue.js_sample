@@ -11,6 +11,7 @@
         <button v-on:click="doAction">CALC</button>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -26,7 +27,7 @@ export default {
     };
   },
   methods:{
-    doActoin: function(){
+    doAction: function(){
       var arr = this.fomula.trim().split('¥n');//両端の空白を削除し、改行で分割
       var last = arr.pop();
       var fn = '';
@@ -35,7 +36,7 @@ export default {
           fn += 'var' + arr[n] + ';';
         }
       }
-      fn += 'return' + 'last' + ';';
+      fn += 'return' + last + ';';
       var exp = 'function f(){ '+ fn +' } f();';
       var ans = eval(exp);
       this.message = 'answer:' + ans;

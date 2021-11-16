@@ -1,5 +1,5 @@
 <template>
-  <div id="id">
+  <div id="app">
     <Calc v-bind:title="message" v-on:result-event="appAction" />
     <hr>
     <div>
@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/Calc.vue'
+import Calc from './components/Calc.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     Calc
   },
@@ -26,13 +26,13 @@ export default {
     log:function(){
       var table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>';
       for(var i in this.result){
-        table += '<tr><td>' + this.result[i][0] + '</td></tr>' + this.result[i][1] + '</th></tr>';
+        table += '<th><td>' + this.result[i][0] + '</td><tr>' + this.result[i][1] + '</tr></th>';
       }
       return table;
     }
   },
   created: function(){
-    var items = localStorage.getTtem('log');
+    var items = localStorage.getItem('log');
     var logs = JSON.parse(items);
     if(logs != null){
       this.result = logs;
