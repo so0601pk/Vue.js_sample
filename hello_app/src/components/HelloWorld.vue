@@ -3,7 +3,9 @@
     <h1>{{ title }}</h1>
     <p>{{ message }}</p>
     <hr>
-    <p>Number: {{ num }}</p>
+    <p>val: {{ val }}</p>
+    <div>* 2: <input type="number" v-model="a"></div>
+    <div>^ 2: <input type="number" v-model="b"></div>
   </div>
 </template>
 
@@ -12,25 +14,34 @@ export default {
   name: 'HelloWorld',
   props: {
     title: String,
-    num:{
-      type: Number,
-      default: 100,
-      validator :function(value){
-        return value == parseInt(value) && value >= 0 && value <= 100;
-      },
-    },
   },
   data:function(){//data=変数だが、関数の形式で記述しなければならない
     return{
       message: 'バリデーションチェック',
+      val:0,
     };
   },
-  methods:{
-    doAction: function(){
-      this.message = 'こんにちは、' + this.input + 'さん！';
-      this.$emit('result-event', this.input);
-    }
-  }
+  computed:{
+    a:{
+      get:function(){
+        return this.val * 2;
+      },
+      set:function(value){
+        this.val = Math.floor(value / 2);
+      },
+    },
+    b:{
+      get:function(){
+        return this.val * this.val;
+      },
+      set:function(value){
+        this.val = Math.floor(Math.sqrt(value));
+      },
+    },
+  },
+  created:function(){
+    this.val = 10;
+  },
 }
 </script>
 
