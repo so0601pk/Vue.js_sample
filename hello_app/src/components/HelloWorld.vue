@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     type: function(event){
-      this.message += event.key + '';
+      this.message += event.key + ' ';
       if(event.key == "Escape"){
         this.message = '';
       }
