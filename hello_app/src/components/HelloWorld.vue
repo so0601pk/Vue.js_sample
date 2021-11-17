@@ -1,10 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ title }}</h1>
-    <pre v-on:click="clear">{{ message }}</pre>
+    <pre>{{ message }}</pre>
     <hr>
     <div>
-      <input type="text" v-on:keydown="type">
+      <input type="text"
+      v-on:keydown.delete="clear"
+      v-on:keypress="type"
+      v-on:keydown.space="space"
+      v-on:keydown.enter="enter"
+      >
     </div>
   </div>
 </template>
@@ -22,14 +27,22 @@ export default {
   },
   methods:{
     type: function(event){
-      this.message += event.key + ' ';
-      if(event.key == "Escape"){
-        this.message = '';
+      if(event.key == 'Enter'){
+        return;
       }
+      this.message += event.key + ' ';
       event.target.value = '';
     },
     clear: function(){
       this.message = '';
+    },
+    space: function(){
+      this.message += '_ ';
+    },
+    enter: function(event){
+      var res =this.message.split(' ').join('')
+      this.message = res.split('_').join(' ');
+      event.target.value = '';
     }
   },
 }
