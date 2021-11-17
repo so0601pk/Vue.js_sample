@@ -56,7 +56,7 @@ p{
   font-size: 16pt;
 }
 
-pre{
+/* pre{
   font-size: 14pt;
 }
 div.out{
@@ -76,5 +76,5 @@ div.in{
   background-color: #ccc;
   width: 100px;
   height: 150px;
-}
+} */
 </style>
