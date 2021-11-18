@@ -3,13 +3,7 @@
     <h1>{{ title }}</h1>
     <pre>{{ message }}</pre>
     <hr>
-    <div class="areeea" v-on:click.="click"
-    v-on:click.exact="exact"
-    v-on:click.shift="shift"
-    v-on:click.ctrl="ctrl"
-    v-on:click.alt="alt"
-    >click here!
-    </div>
+    <div><slot /></div>
   </div>
 </template>
 
@@ -21,25 +15,8 @@ export default {
   },
   data:function(){//data=変数だが、関数の形式で記述しなければならない
     return{
-      message: '',
+      message: 'This is a message',
     };
-  },
-  methods:{
-    click: function(){
-      this.message = 'click';
-    },
-    exact: function(){
-      this.message += '**no any key';
-    },
-    shift: function(){
-      this.message += '[shift]';
-    },
-    ctrl: function(){
-      this.message += '[ctrl]';
-    },
-    alt: function(){
-      this.message += '[alt]';
-    }
   },
 }
 </script>
@@ -64,12 +41,12 @@ p{
   color:black;
   font-size: 16pt;
 }
-
+/* 
 area{
   width: 300px;
   height: 100px;
   background-color: #ddd;
   padding: 10px;
   font-size: 20pt;
-}
+} */
 </style>
