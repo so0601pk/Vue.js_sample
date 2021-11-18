@@ -3,7 +3,13 @@
     <h1>{{ title }}</h1>
     <pre>{{ message }}</pre>
     <hr>
-    <div><slot /></div>
+    <ul>
+      <li><slot name="a" /></li>
+      <li><slot name="b" /></li>
+      <li><slot name="c" /></li>
+    </ul>
+    <hr>
+    <slot />
   </div>
 </template>
 
@@ -41,12 +47,15 @@ p{
   color:black;
   font-size: 16pt;
 }
-/* 
-area{
-  width: 300px;
-  height: 100px;
-  background-color: #ddd;
-  padding: 10px;
-  font-size: 20pt;
-} */
+
+.inner{
+  color: red;
+  font-size: 14pt;
+}
+.etc{
+  color: green;
+  background-color: #eee;
+  font-size: 12pt;
+  padding: 5px;
+}
 </style>
